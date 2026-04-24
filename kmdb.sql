@@ -95,17 +95,14 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
-
--- Create new tables, according to your domain model
--- TODO!
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS agents;
--- Insert data into your database that reflects the sample data shown above
--- Use hard-coded foreign key IDs when necessary
+-- Create new tables, according to your domain model
 -- TODO!
+
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY,
   name TEXT
@@ -136,6 +133,10 @@ CREATE TABLE roles (
   actor_id INTEGER,
   character_name TEXT
 );
+-- Insert data into your database that reflects the sample data shown above
+-- Use hard-coded foreign key IDs when necessary
+-- TODO!
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
@@ -159,7 +160,44 @@ CREATE TABLE roles (
 
 -- ***TODO!***
 -- The SQL statement for the cast output goes here.
+INSERT INTO studios (id, name) VALUES (1, 'Warner Bros.');
 
+INSERT INTO agents (id, name) VALUES (1, 'Ari Gold');
+
+INSERT INTO movies (id, title, year_released, mpaa_rating, studio_id) VALUES
+(1, 'Batman Begins', 2005, 'PG-13', 1),
+(2, 'The Dark Knight', 2008, 'PG-13', 1),
+(3, 'The Dark Knight Rises', 2012, 'PG-13', 1);
+
+INSERT INTO actors (id, name, agent_id) VALUES
+(1, 'Christian Bale', NULL),
+(2, 'Michael Caine', NULL),
+(3, 'Liam Neeson', NULL),
+(4, 'Katie Holmes', NULL),
+(5, 'Gary Oldman', NULL),
+(6, 'Heath Ledger', NULL),
+(7, 'Aaron Eckhart', NULL),
+(8, 'Maggie Gyllenhaal', NULL),
+(9, 'Tom Hardy', NULL),
+(10, 'Joseph Gordon-Levitt', NULL),
+(11, 'Anne Hathaway', NULL);
+
+INSERT INTO roles (movie_id, actor_id, character_name) VALUES
+(1, 1, 'Bruce Wayne'),
+(1, 2, 'Alfred'),
+(1, 3, 'Ra''s Al Ghul'),
+(1, 4, 'Rachel Dawes'),
+(1, 5, 'Commissioner Gordon'),
+(2, 1, 'Bruce Wayne'),
+(2, 6, 'Joker'),
+(2, 7, 'Harvey Dent'),
+(2, 2, 'Alfred'),
+(2, 8, 'Rachel Dawes'),
+(3, 1, 'Bruce Wayne'),
+(3, 5, 'Commissioner Gordon'),
+(3, 9, 'Bane'),
+(3, 10, 'John Blake'),
+(3, 11, 'Selina Kyle');
 -- Example output:
 -- Top Cast
 -- ========
