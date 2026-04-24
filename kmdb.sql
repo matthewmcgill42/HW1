@@ -106,7 +106,36 @@ DROP TABLE IF EXISTS agents;
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+CREATE TABLE studios (
+  id INTEGER PRIMARY KEY,
+  name TEXT
+);
 
+CREATE TABLE agents (
+  id INTEGER PRIMARY KEY,
+  name TEXT
+);
+
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  agent_id INTEGER
+);
+
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY,
+  title TEXT,
+  year_released INTEGER,
+  mpaa_rating TEXT,
+  studio_id INTEGER
+);
+
+CREATE TABLE roles (
+  id INTEGER PRIMARY KEY,
+  movie_id INTEGER,
+  actor_id INTEGER,
+  character_name TEXT
+);
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
